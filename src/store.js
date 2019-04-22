@@ -19,6 +19,7 @@ export const LAST_NAME = 'LAST_NAME'
 export const INGREDIENTS = 'INGREDIENTS'
 export const INSTRUCTIONS = 'INSTRUCTIONS'
 export const RECIPES = 'RECIPES'
+export const DELETE = 'DELETE'
  function reducer(state = initialState,action) {
 const {type, payload} = action
     switch(type) {
@@ -38,6 +39,7 @@ const {type, payload} = action
     let newInstruction = [...state.instructions, payload]
     return {...state, instructions: newInstruction}
     case RECIPES:
+    
     const { name,
     category,
     first_name,
@@ -52,11 +54,15 @@ const {type, payload} = action
         first_name,
         last_name,
         ingredients,
-        instructions
+        instructions,
+        
     }
     let newRecipes = [...state.recipes, recipe]
     state = initialState
     return {...state, recipes: newRecipes}
+    case DELETE:
+    return  {...state, recipes: payload}
+
     default:
     return state
     }

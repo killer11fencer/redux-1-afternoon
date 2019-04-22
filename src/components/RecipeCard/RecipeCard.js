@@ -1,6 +1,7 @@
 import React from "react";
 import "./RecipeCard.css";
 
+
 let RecipeCard = props => {
   const {
     name,
@@ -8,8 +9,14 @@ let RecipeCard = props => {
     first_name,
     last_name,
     ingredients,
-    instructions
+    instructions,
+    
+    
+    
   } = props;
+
+  
+
   const ingredientsDisplay = ingredients.map((ingredient, i) => {
     return <li key={i}>{ingredient}</li>;
   });
@@ -34,6 +41,7 @@ let RecipeCard = props => {
         <ol className="list">{instructionsDisplay}</ol>
       </div>
       <svg
+        onClick={(e)=> props.delete(name)}
         className="delete"
         width="60"
         height="60"

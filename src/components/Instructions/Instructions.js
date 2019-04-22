@@ -39,6 +39,7 @@ class Instructions extends Component {
       type: RECIPES
     })
   }
+  
   render() {
     const instructions = this.state.instructions.map((instruction, i) => {
       return <li key={i}>{instruction}</li>;
