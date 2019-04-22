@@ -8,7 +8,7 @@ class Ingredients extends Component {
     super(props);
     this.state = {
       ingredients: reduxState.ingredients,
-      input: ""
+      input: reduxState.userInput
     };
   }
   componentDidMount() {

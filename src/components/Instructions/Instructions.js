@@ -7,7 +7,7 @@ class Instructions extends Component {
     let reduxState = store.getState()
     this.state = {
       instructions: reduxState.instructions,
-      input: ""
+      input: reduxState.input
     };
   }
   componentDidMount () {

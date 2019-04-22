@@ -7,7 +7,8 @@ let initialState = {
     last_name: '',
     ingredients: [],
     instructions: [],
-    recipes: []
+    recipes: [],
+    input:''
 
 
 }
@@ -54,6 +55,7 @@ const {type, payload} = action
         instructions
     }
     let newRecipes = [...state.recipes, recipe]
+    state = initialState
     return {...state, recipes: newRecipes}
     default:
     return state
