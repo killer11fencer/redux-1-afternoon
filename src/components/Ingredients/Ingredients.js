@@ -14,9 +14,9 @@ class Ingredients extends Component {
   componentDidMount() {
     store.subscribe(()=>
     { const reduxState = store.getState()
-    this.state = {
-      ingredients: reduxState.ingredients
-    }})
+    this.setState({ingredients: reduxState.ingredients})
+      
+    })
   }
   handleChange(val) {
     this.setState({
@@ -26,7 +26,7 @@ class Ingredients extends Component {
   addIngredient() {
     store.dispatch({
       type: INGREDIENTS,
-      payload: this.state.ingredients
+      payload: this.state.input
     })
     this.setState({
       input: ""
@@ -34,6 +34,7 @@ class Ingredients extends Component {
   }
   render() {
     const ingredients = this.state.ingredients.map((ingredient, i) => {
+      console.log('goign goign',ingredient)
       return <li key={i}>{ingredient}</li>;
     });
     return (

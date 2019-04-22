@@ -17,14 +17,15 @@ export const FIRST_NAME = 'FIRST_NAME'
 export const LAST_NAME = 'LAST_NAME'
 export const INGREDIENTS = 'INGREDIENTS'
 export const INSTRUCTIONS = 'INSTRUCTIONS'
-export const RECIPES = 'RECIPE'
+export const RECIPES = 'RECIPES'
  function reducer(state = initialState,action) {
-switch(action.type) {
+const {type, payload} = action
+    switch(type) {
 
     case NAME:
     return {...state, name: payload}
     case CATEGORY:
-    return {...state, name: payload}
+    return {...state, category: payload}
     case FIRST_NAME:
     return {...state, first_name: payload}
     case LAST_NAME:
@@ -35,9 +36,25 @@ switch(action.type) {
     case INSTRUCTIONS:
     let newInstruction = [...state.instructions, payload]
     return {...state, instructions: newInstruction}
-    case RECIPE:
-    let newRecipe = [...state.recipes, recipe]
-    return {...state,newRecipe}
+    case RECIPES:
+    const { name,
+    category,
+    first_name,
+    last_name,
+    ingredients,
+    instructions} =
+    state;
+
+    const recipe = {
+        name,
+        category,
+        first_name,
+        last_name,
+        ingredients,
+        instructions
+    }
+    let newRecipes = [...state.recipes, recipe]
+    return {...state, recipes: newRecipes}
     default:
     return state
     }

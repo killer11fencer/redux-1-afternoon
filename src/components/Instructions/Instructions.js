@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import store, {INSTRUCTIONS,RECIPES} from '../../store'
 class Instructions extends Component {
   constructor(props) {
-    let reduxState = store.getState()
     super(props);
+    let reduxState = store.getState()
     this.state = {
       instructions: reduxState.instructions,
       input: ""
@@ -13,10 +13,10 @@ class Instructions extends Component {
   componentDidMount () {
     store.subscribe(() => {
     const reduxState = store.getState()
-     this.state = {
-      instructions: reduxState.instructions
+     this.setState({ instructions: reduxState.instructions})
+     
     }
-  }
+  
     )
   }
   handleChange(val) {
@@ -27,7 +27,7 @@ class Instructions extends Component {
   addInstruction() {
     store.dispatch({
       type: INSTRUCTIONS,
-      payload: this.state.instructions
+      payload: this.state.input
     }
     )
     this.setState({
@@ -36,7 +36,7 @@ class Instructions extends Component {
   }
   create() {
     store.dispatch({
-      type:RECIPES
+      type: RECIPES
     })
   }
   render() {

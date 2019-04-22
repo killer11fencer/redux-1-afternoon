@@ -20,8 +20,8 @@ class Home extends Component {
           key={i}
           name={recipe.name}
           category={recipe.category}
-          authorFirst={recipe.authorFirst}
-          authorLast={recipe.authorLast}
+          authorFirst={recipe.first_name}
+          authorLast={recipe.last_name}
           ingredients={recipe.ingredients}
           instructions={recipe.instructions}
         />

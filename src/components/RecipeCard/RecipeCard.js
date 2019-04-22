@@ -5,8 +5,8 @@ let RecipeCard = props => {
   const {
     name,
     category,
-    authorFirst,
-    authorLast,
+    first_name,
+    last_name,
     ingredients,
     instructions
   } = props;
@@ -23,7 +23,7 @@ let RecipeCard = props => {
         <p>#{category}</p>
       </div>
       <p>
-        by {authorFirst} {authorLast}
+        by {first_name} {last_name}
       </p>
       <h3>Ingredients</h3>
       <div className="scroll_container">
